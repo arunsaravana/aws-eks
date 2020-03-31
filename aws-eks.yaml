@@ -1,0 +1,19 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: demo-cluster
+  region: us-east-1
+
+nodeGroups:
+  - name: ng-1
+    #desiredCapacity: 1
+    minSize: 0
+    maxSize: 2
+    instancesDistribution:
+      maxPrice: 0.2
+      instanceTypes: ["t2.small", "t2.small"]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 0
+    ssh: # use existing EC2 key
+      publicKeyName: sample
