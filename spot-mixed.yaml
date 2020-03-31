@@ -38,7 +38,7 @@ nodeGroups:
     instancesDistribution:
       instanceTypes: ["t2.small", "t3.small"]
       onDemandBaseCapacity: 0
-      onDemandPercentageAboveBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 50
     availabilityZones: ["us-east-1c", "us-east-1d"]
     iam:
       withAddonPolicies:
