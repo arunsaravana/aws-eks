@@ -232,6 +232,18 @@ Resources:
       SourceSecurityGroupId: !Ref ClusterControlPlaneSecurityGroup
       ToPort: 443
 
+  NodeSecurityGroupFromControlPlaneOn22Ingress:
+    Type: "AWS::EC2::SecurityGroupIngress"
+    DependsOn: NodeSecurityGroup
+    Properties:
+      Description: Allow ssh port 
+      GroupId: !Ref NodeSecurityGroup
+      IpProtocol: tcp
+      CidrIp: 0.0.0.0/0
+      FromPort: 22
+      ToPort: 22
+
+
   NodeLaunchConfig:
     Type: "AWS::AutoScaling::LaunchConfiguration"
     Properties:
